@@ -29,7 +29,7 @@ $data = mysqli_fetch_array($query);
                     <label for="game_name" class="form-label text-light">Nama Game</label>
                 </div>
                 <div class="col-9">
-                    <input type="text" id="game_name" class="form-control bg-secondary text-light bg-secondary" name="game_name" placeholder="Masukkan Nama Game yang baru" required>
+                    <input type="text" id="game_name" class="form-control bg-secondary text-light bg-secondary" name="game_name" value="<?= $data['game_name'] ?>" required>
                 </div>
             </div>
         </div>
@@ -39,7 +39,7 @@ $data = mysqli_fetch_array($query);
                     <label for="pembuat_game" class="form-label text-light">Nama Pembuat Game</label>
                 </div>
                 <div class="col-9">
-                    <input type="text" id="pembuat_game" class="form-control bg-secondary text-light bg-secondary" name="pembuat_game" placeholder="Masukkan Nama Pembuat / Nama Perusahaan Game yang baru" required>
+                    <input type="text" id="pembuat_game" class="form-control bg-secondary text-light bg-secondary" name="pembuat_game" value="<?= $data['pembuat_game'] ?>" required>
                 </div>
             </div>
         </div>
@@ -49,7 +49,7 @@ $data = mysqli_fetch_array($query);
                     <label for="tahun_rilis" class="form-label text-light">Tahun Rilis</label>
                 </div>
                 <div class="col-3">
-                    <input type="number" id="tahun_rilis" class="form-control bg-secondary text-light" name="tahun_rilis" placeholder="Masukkan Tahun Rilis yang baru" required>
+                    <input type="number" id="tahun_rilis" class="form-control bg-secondary text-light" name="tahun_rilis" value="<?= $data['tahun_rilis'] ?>" required>
                 </div>
             </div>
         </div>
@@ -59,23 +59,12 @@ $data = mysqli_fetch_array($query);
                     <label for="deskripsi_game" class="form-label text-light">Deskripsi</label>
                 </div>
                 <div class="col-9">
-                    <textarea class="form-control bg-secondary form-check-inline text-light" id="deskripsi_game" rows="3" placeholder="Masukkan Deskripsi Tentang Game yang baru" name="deskripsi_game"></textarea>
+                    <textarea class="form-control bg-secondary form-check-inline text-light" id="deskripsi_game" rows="3" value="" name="deskripsi_game"><?= $data['deskripsi_game'] ?></textarea>
                 </div>
             </div>
         </div>
         <div class="container mb-5 mt-5 text-end">
-            <button class="btn btn-danger m-4" type="button" onclick="resetForm()">Batal</button>
-            <script>
-                function resetForm() {
-                    document.querySelectorAll('input, textarea').forEach(element => {
-                        if (element.type === 'radio') {
-                            element.checked = element.defaultChecked;
-                        } else {
-                            element.value = '';
-                        }
-                    });
-                }
-            </script>
+            <a href="dataGame.php"><button class="btn btn-danger m-4" type="button">Kembali</button></a>
             <button class="btn btn-primary" type="submit">Edit</button>
         </div>
     </form>
